@@ -1,0 +1,87 @@
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: var(--ion-color-dark);
+  }
+
+  form {
+    margin-bottom: 2rem;
+
+    ion-item {
+      --padding-start: 0;
+      --border-color: transparent;
+      --highlight-height: 1px;
+      --highlight-color: var(--ion-color-primary);
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      --background: var(--ion-color-light);
+    }
+
+    ion-button {
+      margin-top: 1.5rem;
+      --border-radius: 8px;
+      height: 48px;
+    }
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+    color: var(--ion-color-medium);
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--ion-color-light-shade);
+    }
+
+    span {
+      padding: 0 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  .social-buttons {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    ion-button {
+      --border-radius: 8px;
+      height: 48px;
+      --border-width: 1px;
+      --border-color: var(--ion-color-medium);
+      --color: var(--ion-color-dark);
+      
+      ion-icon {
+        font-size: 1.2rem;
+      }
+
+      &:hover {
+        --background: var(--ion-color-light);
+      }
+    }
+  }
+}
+
+// Make the content scrollable on smaller screens
+ion-content {
+  --padding-top: 2rem;
+  --padding-bottom: 2rem;
+}
+
+// Responsive adjustments
+@media (max-width: 480px) {
+  .login-container {
+    padding: 10px;
+  }
+}

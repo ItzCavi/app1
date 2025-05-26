@@ -1,3 +1,45 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="end" menuId="cart" contentId="main">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-title>Cart</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeMenu()">
+            <ion-icon name="close-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div class="empty-cart" *ngIf="cartItems.length === 0">
+        <ion-icon name="cart-outline" size="large"></ion-icon>
+        <h3>Your cart is empty</h3>
+        <p>Add items to get started</p>
+      </div>
+      <ion-list *ngIf="cartItems.length > 0">
+        <ion-item *ngFor="let item of cartItems">
+          <ion-thumbnail slot="start">
+            <img [src]="item.image" />
+          </ion-thumbnail>
+          <ion-label>
+            <h3>{{ item.name }}</h3>
+            <p>Price: {{ item.price | currency }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+          </ion-label>
+          <ion-buttons slot="end">
+            <ion-button (click)="decreaseQuantity(item)">-</ion-button>
+            <ion-button (click)="increaseQuantity(item)">+</ion-button>
+            <ion-button color="danger" (click)="removeItem(item)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-list>
+      <div *ngIf="cartItems.length > 0" class="cart-total">
+        <h3>Total: {{ cartTotal() | currency }}</h3>
+        <ion-button expand="block" color="primary">Checkout</ion-button>
+      </div>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

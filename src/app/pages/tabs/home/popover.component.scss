@@ -1,0 +1,23 @@
+:host {
+  ion-list {
+    margin: 0;
+    padding: 8px 0;
+    background: var(--ion-background-color);
+    border-radius: 8px;
+  }
+
+  ion-item {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --min-height: 48px;
+    
+    &:hover {
+      --background: var(--ion-color-light);
+    }
+  }
+
+  ion-label {
+    margin: 0;
+    font-size: 14px;
+  }
+}

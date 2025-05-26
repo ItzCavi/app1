@@ -1,0 +1,15 @@
+<div *ngIf="products.length > 0" class="container">
+  <swiper-container
+    [slidesPerView]="1.8"
+    [spaceBetween]="20"
+  >
+    <ng-container *ngFor="let product of products; let i = index">
+      <swiper-slide>
+        <app-product 
+          [item]="product"
+          (addToCart)="onAddToCart(product)"
+        ></app-product>
+      </swiper-slide>
+    </ng-container>
+  </swiper-container>
+</div>

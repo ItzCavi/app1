@@ -1,0 +1,17 @@
+<ng-container *ngIf="categories.length > 0">
+  <ion-row>
+    <div class="container">
+      <swiper-container [modules]="swiperModules" [slidesPerView]="4">
+        <ng-container *ngFor="let category of categories; let i = index">
+          <swiper-slide>
+            <ion-col>
+              <app-image-circle [image]="category.image"></app-image-circle>
+              <p class="small text-weight-500">{{ category.name }}</p>
+            </ion-col>
+          </swiper-slide>
+        </ng-container>
+      </swiper-container>
+    </div>
+  </ion-row>
+</ng-container>
+  
