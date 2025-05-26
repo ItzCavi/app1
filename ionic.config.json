@@ -1,0 +1,7 @@
+{
+  "name": "QuickBite",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
